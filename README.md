@@ -1,7 +1,7 @@
 
 # Brief description
 
-Human drowsiness detection.
+Human drowsiness detection with YoloV5.
 
 
 ## Getting started
@@ -16,3 +16,8 @@ Train model with Multiple GPU
 ```
 ## Datasets folder setup
 ![alt text](image.png)
+
+## Link to dataset
+
+(VKU's email access only)
+[Drowsiness dataset](https://drive.google.com/file/d/1ssQHltSSEQBS7QeYxeRDU1-pV945O1Da/view?usp=sharing)
