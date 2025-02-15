@@ -14,5 +14,5 @@ Train model with Multiple GPU
 ```bash
     python -m torch.distributed.run --nproc_per_node 2 train.py --batch 64 --img 416 --epochs 50 --data coco.yaml --weights yolov5s.pt --device 0,1
 ```
-##Datasets folder setup
+## Datasets folder setup
 ![alt text](image.png)
