@@ -21,3 +21,4 @@ Train model with Multiple GPU
 
 (VKU's email access only)
 [Drowsiness dataset](https://drive.google.com/file/d/1ssQHltSSEQBS7QeYxeRDU1-pV945O1Da/view?usp=sharing)
+[Notebook - training](https://drive.google.com/drive/folders/10Guv7OT-d_SW_Hk_DpHjZTGqEXl9XMCa?usp=sharing)
