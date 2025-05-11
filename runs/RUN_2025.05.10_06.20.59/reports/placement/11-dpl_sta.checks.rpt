@@ -1,0 +1,335 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= Typical Corner ===================================
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _4350_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          1.00    1.00 ^ input external delay
+     1    0.01    0.11    0.07    1.07 ^ rst_n (in)
+                                         rst_n (net)
+                  0.11    0.00    1.07 ^ rst_buf/A (sky130_fd_sc_hd__clkbuf_16)
+   105    0.47    0.47    0.43    1.51 ^ rst_buf/X (sky130_fd_sc_hd__clkbuf_16)
+                                         tree_instances[0].u_tree.rst_n (net)
+                  0.47    0.01    1.52 ^ load_slew13/A (sky130_fd_sc_hd__clkbuf_16)
+    93    0.41    0.42    0.50    2.01 ^ load_slew13/X (sky130_fd_sc_hd__clkbuf_16)
+                                         net13 (net)
+                  0.42    0.03    2.04 ^ load_slew11/A (sky130_fd_sc_hd__clkbuf_16)
+   105    0.46    0.46    0.50    2.54 ^ load_slew11/X (sky130_fd_sc_hd__clkbuf_16)
+                                         net11 (net)
+                  0.47    0.05    2.60 ^ _4350_/RESET_B (sky130_fd_sc_hd__dfrtp_2)
+                                  2.60   data arrival time
+
+                  0.00   10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                                 10.00 ^ _4350_/CLK (sky130_fd_sc_hd__dfrtp_2)
+                          0.08   10.08   library recovery time
+                                 10.08   data required time
+-----------------------------------------------------------------------------
+                                 10.08   data required time
+                                 -2.60   data arrival time
+-----------------------------------------------------------------------------
+                                  7.48   slack (MET)
+
+
+Startpoint: _4365_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _4357_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _4365_/CLK (sky130_fd_sc_hd__dfrtp_1)
+     2    0.01    0.08    0.32    0.32 ^ _4365_/Q (sky130_fd_sc_hd__dfrtp_1)
+                                         current_voting_frame[4] (net)
+                  0.08    0.00    0.32 ^ _2982_/A (sky130_fd_sc_hd__buf_2)
+     8    0.03    0.15    0.19    0.52 ^ _2982_/X (sky130_fd_sc_hd__buf_2)
+                                         _0660_ (net)
+                  0.15    0.00    0.52 ^ _2983_/A (sky130_fd_sc_hd__clkbuf_4)
+     8    0.04    0.14    0.24    0.76 ^ _2983_/X (sky130_fd_sc_hd__clkbuf_4)
+                                         _0661_ (net)
+                  0.14    0.00    0.76 ^ _2984_/A (sky130_fd_sc_hd__clkbuf_4)
+     8    0.04    0.13    0.23    0.99 ^ _2984_/X (sky130_fd_sc_hd__clkbuf_4)
+                                         _0662_ (net)
+                  0.13    0.00    0.99 ^ _3183_/A1 (sky130_fd_sc_hd__a21oi_1)
+     1    0.00    0.05    0.07    1.07 v _3183_/Y (sky130_fd_sc_hd__a21oi_1)
+                                         _0855_ (net)
+                  0.05    0.00    1.07 v _3190_/A (sky130_fd_sc_hd__and3_1)
+     1    0.00    0.04    0.15    1.21 v _3190_/X (sky130_fd_sc_hd__and3_1)
+                                         _0862_ (net)
+                  0.04    0.00    1.21 v _3211_/B (sky130_fd_sc_hd__or4_1)
+     1    0.00    0.08    0.49    1.70 v _3211_/X (sky130_fd_sc_hd__or4_1)
+                                         _0883_ (net)
+                  0.08    0.00    1.70 v _3212_/D (sky130_fd_sc_hd__nor4_1)
+     3    0.01    0.45    0.35    2.04 ^ _3212_/Y (sky130_fd_sc_hd__nor4_1)
+                                         _0884_ (net)
+                  0.45    0.00    2.04 ^ _3213_/A4 (sky130_fd_sc_hd__a41o_1)
+     5    0.02    0.16    0.33    2.37 ^ _3213_/X (sky130_fd_sc_hd__a41o_1)
+                                         _0885_ (net)
+                  0.16    0.00    2.37 ^ _3219_/B (sky130_fd_sc_hd__or2_1)
+     2    0.01    0.07    0.15    2.52 ^ _3219_/X (sky130_fd_sc_hd__or2_1)
+                                         _0890_ (net)
+                  0.07    0.00    2.52 ^ _3220_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.00    0.05    0.31    2.83 v _3220_/X (sky130_fd_sc_hd__mux2_1)
+                                         _0891_ (net)
+                  0.05    0.00    2.83 v _3221_/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.00    0.02    0.09    2.92 v _3221_/X (sky130_fd_sc_hd__clkbuf_1)
+                                         _0117_ (net)
+                  0.02    0.00    2.92 v _4357_/D (sky130_fd_sc_hd__dfrtp_1)
+                                  2.92   data arrival time
+
+                  0.00   10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                                 10.00 ^ _4357_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                         -0.12    9.88   library setup time
+                                  9.88   data required time
+-----------------------------------------------------------------------------
+                                  9.88   data required time
+                                 -2.92   data arrival time
+-----------------------------------------------------------------------------
+                                  6.96   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= Typical Corner ===================================
+
+
+max slew violations count Typical: 0
+max fanout violations count Typical: 0
+max cap violations count Typical: 0
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 194 unannotated drivers.
+ arbitration_id[0]
+ arbitration_id[10]
+ arbitration_id[11]
+ arbitration_id[12]
+ arbitration_id[13]
+ arbitration_id[14]
+ arbitration_id[15]
+ arbitration_id[16]
+ arbitration_id[17]
+ arbitration_id[18]
+ arbitration_id[19]
+ arbitration_id[1]
+ arbitration_id[20]
+ arbitration_id[21]
+ arbitration_id[22]
+ arbitration_id[23]
+ arbitration_id[24]
+ arbitration_id[25]
+ arbitration_id[26]
+ arbitration_id[27]
+ arbitration_id[28]
+ arbitration_id[29]
+ arbitration_id[2]
+ arbitration_id[30]
+ arbitration_id[31]
+ arbitration_id[32]
+ arbitration_id[33]
+ arbitration_id[34]
+ arbitration_id[35]
+ arbitration_id[36]
+ arbitration_id[37]
+ arbitration_id[38]
+ arbitration_id[39]
+ arbitration_id[3]
+ arbitration_id[40]
+ arbitration_id[41]
+ arbitration_id[42]
+ arbitration_id[43]
+ arbitration_id[44]
+ arbitration_id[45]
+ arbitration_id[46]
+ arbitration_id[47]
+ arbitration_id[48]
+ arbitration_id[49]
+ arbitration_id[4]
+ arbitration_id[50]
+ arbitration_id[51]
+ arbitration_id[52]
+ arbitration_id[53]
+ arbitration_id[54]
+ arbitration_id[55]
+ arbitration_id[56]
+ arbitration_id[57]
+ arbitration_id[58]
+ arbitration_id[59]
+ arbitration_id[5]
+ arbitration_id[60]
+ arbitration_id[61]
+ arbitration_id[62]
+ arbitration_id[63]
+ arbitration_id[6]
+ arbitration_id[7]
+ arbitration_id[8]
+ arbitration_id[9]
+ clk
+ data_field[0]
+ data_field[10]
+ data_field[11]
+ data_field[12]
+ data_field[13]
+ data_field[14]
+ data_field[15]
+ data_field[16]
+ data_field[17]
+ data_field[18]
+ data_field[19]
+ data_field[1]
+ data_field[20]
+ data_field[21]
+ data_field[22]
+ data_field[23]
+ data_field[24]
+ data_field[25]
+ data_field[26]
+ data_field[27]
+ data_field[28]
+ data_field[29]
+ data_field[2]
+ data_field[30]
+ data_field[31]
+ data_field[32]
+ data_field[33]
+ data_field[34]
+ data_field[35]
+ data_field[36]
+ data_field[37]
+ data_field[38]
+ data_field[39]
+ data_field[3]
+ data_field[40]
+ data_field[41]
+ data_field[42]
+ data_field[43]
+ data_field[44]
+ data_field[45]
+ data_field[46]
+ data_field[47]
+ data_field[48]
+ data_field[49]
+ data_field[4]
+ data_field[50]
+ data_field[51]
+ data_field[52]
+ data_field[53]
+ data_field[54]
+ data_field[55]
+ data_field[56]
+ data_field[57]
+ data_field[58]
+ data_field[59]
+ data_field[5]
+ data_field[60]
+ data_field[61]
+ data_field[62]
+ data_field[63]
+ data_field[6]
+ data_field[7]
+ data_field[8]
+ data_field[9]
+ timestamp[0]
+ timestamp[10]
+ timestamp[11]
+ timestamp[12]
+ timestamp[13]
+ timestamp[14]
+ timestamp[15]
+ timestamp[16]
+ timestamp[17]
+ timestamp[18]
+ timestamp[19]
+ timestamp[1]
+ timestamp[20]
+ timestamp[21]
+ timestamp[22]
+ timestamp[23]
+ timestamp[24]
+ timestamp[25]
+ timestamp[26]
+ timestamp[27]
+ timestamp[28]
+ timestamp[29]
+ timestamp[2]
+ timestamp[30]
+ timestamp[31]
+ timestamp[32]
+ timestamp[33]
+ timestamp[34]
+ timestamp[35]
+ timestamp[36]
+ timestamp[37]
+ timestamp[38]
+ timestamp[39]
+ timestamp[3]
+ timestamp[40]
+ timestamp[41]
+ timestamp[42]
+ timestamp[43]
+ timestamp[44]
+ timestamp[45]
+ timestamp[46]
+ timestamp[47]
+ timestamp[48]
+ timestamp[49]
+ timestamp[4]
+ timestamp[50]
+ timestamp[51]
+ timestamp[52]
+ timestamp[53]
+ timestamp[54]
+ timestamp[55]
+ timestamp[56]
+ timestamp[57]
+ timestamp[58]
+ timestamp[59]
+ timestamp[5]
+ timestamp[60]
+ timestamp[61]
+ timestamp[62]
+ timestamp[63]
+ timestamp[6]
+ timestamp[7]
+ timestamp[8]
+ timestamp[9]
+ Random_forest_top_ver3_14/HI
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 0
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================
+Warning: There is 1 unconstrained endpoint.
+  prediction_out
